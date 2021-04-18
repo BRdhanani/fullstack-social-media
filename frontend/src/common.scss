@@ -1,0 +1,601 @@
+@import './variables.scss';
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  line-height: 24px;
+  font-family: 'CircularStd';
+  font-weight: 400;
+  font-size: 14px;
+  overflow-x: hidden;
+  line-height: 20px;
+}
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a:hover,
+a:visited,
+a:focus,
+a:active,
+img,
+button {
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+a {
+  transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+}
+
+ul {
+  list-style: none;
+}
+
+:hover {
+  transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+}
+
+body,
+body.modal-open {
+  transition: none 0s ease 0s !important;
+}
+button:focus {
+  outline: 0;
+}
+
+.container-fluid {
+  max-width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.ant-form-item-label {
+  width: 100%;
+  text-align: left;
+}
+
+label {
+  width: 100%;
+  line-height: normal;
+  padding-bottom: 8px;
+}
+
+input:-internal-autofill-selected {
+  background-color: $Login-bg !important;
+}
+
+//Aantd Input
+.ant-input,
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-radius: 4px;
+  background-color: $Login-bg;
+  font-size: 14px;
+  font-weight: 500;
+  &:focus,
+  .ant-input-focused {
+    border-color: $theme-color !important;
+    border-right-width: 1px !important;
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba($theme-color, 0.3) !important;
+  }
+  &:hover {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba($theme-color, 0.3) !important;
+  }
+}
+
+//ant checkbox
+.ant-checkbox-checked {
+  &::after {
+    border: 1px solid $black-color;
+    border-radius: 4px;
+  }
+  .ant-checkbox-inner {
+    border-color: $black-color;
+    border-radius: 4px;
+    &::after {
+      top: 43%;
+    }
+  }
+}
+.ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.ant-checkbox:hover .ant-checkbox-inner,
+.ant-checkbox-input:focus + .ant-checkbox-inner {
+  border-color: $black-color;
+  border-radius: 4px;
+}
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: $black-color;
+}
+.ant-checkbox {
+  & + span {
+    color: $gray-color;
+    font-size: 13px;
+  }
+}
+
+.ant-form-item-label > label::after {
+  display: none;
+}
+
+p {
+  margin-bottom: 0;
+  margin-top: 20px;
+  @include textStyleMixin(
+    $size: 18px,
+    $weight: normal,
+    $lineHeight: normal,
+    $color: $gray-color
+  );
+  @media #{$screen-sm} {
+    font-size: 14px;
+  }
+}
+.ant-picker-input {
+  input {
+    font-weight: 500;
+  }
+  .anticon-clock-circle {
+    display: none;
+  }
+}
+// Tab css
+.ant-tabs {
+  .ant-tabs-tab {
+    background: $white-color;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border: 1px solid $border-color;
+    font-weight: 500;
+    color: $gray-color;
+    &-active {
+      background: $theme-color;
+      border-color: $theme-color;
+      .ant-tabs-tab-btn {
+        color: $white-color;
+      }
+    }
+  }
+  .ant-tabs-nav {
+    margin-bottom: 0;
+  }
+  &-content-holder {
+    border: 1px solid $border-color;
+    padding: 30px 20px;
+    background: $white-color;
+  }
+  .ant-tabs-ink-bar-animated {
+    display: none;
+  }
+}
+
+// modal
+.ant-modal-content {
+  border-radius: 4px;
+  .ant-modal-title {
+    @media #{$screen-xs} {
+      font-size: 18px;
+    }
+  }
+  .ant-modal-close {
+    position: absolute;
+    top: -12px;
+    right: -8px;
+    width: 30px;
+    .ant-modal-close-x {
+      width: 30px;
+      height: 30px;
+      line-height: 30px !important;
+      background: $gray-btn;
+      border-radius: 50%;
+      font-size: 12px;
+      color: $white-color;
+    }
+  }
+  .ant-modal-header {
+    text-align: center;
+    padding: 32px 0 0 0;
+  }
+  h4 {
+    @include textStyleMixin($size: 25px, $color: $gray-btn, $weight: 500);
+    margin-bottom: 28px;
+    @media #{$screen-sm} {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+  }
+}
+.modal-bottom-button {
+  text-align: center;
+}
+.ant-modal {
+  &.Deactivate_Coupon_Modal {
+    .ant-modal-body {
+      padding: 33px 36px 40px;
+    }
+  }
+}
+//ant  select
+.ant-select-multiple {
+  .ant-select-selector {
+    background-color: $white-color;
+  }
+  .ant-select-selection-item {
+    background: $Login-bg;
+    border: 1px solid $border-color;
+    font-size: 12px;
+    overflow: visible;
+  }
+}
+
+.ant-dropdown-menu-item:hover,
+.ant-dropdown-menu-submenu-title:hover {
+  background-color: transparent;
+}
+.ant-dropdown-menu-item > a:hover,
+.ant-dropdown-menu-submenu-title > a:hover {
+  color: $theme-color;
+}
+.ant-dropdown-menu {
+  z-index: 0;
+  border-radius: 4px;
+  min-width: 82px;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: $white-color;
+    top: -3px;
+    right: 12px;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+}
+.ant-form-item {
+  @media #{$screen-sm} {
+    margin-bottom: 15px;
+  }
+}
+
+.ant-select-selector {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    background-size: 16px;
+    right: 4px;
+    top: 9px;
+    width: 20px;
+    height: 20px;
+  }
+}
+.ant-select-arrow {
+  display: none;
+}
+
+//default btn
+.ant-btn {
+  font-size: 13px;
+  font-weight: 500;
+
+  &:hover,
+  &:focus {
+    color: $white-color;
+    border-color: $black-color;
+  }
+}
+.ant-btn-primary {
+  &:hover,
+  &:focus {
+    border-color: rgba($theme-color, 0.3);
+  }
+}
+.ant-btn-background-ghost {
+  &:hover,
+  &:focus {
+    color: $white-color;
+    background-color: $black-color !important;
+  }
+}
+
+//ant table
+.ant-table.ant-table-bordered > .ant-table-container {
+  border: 0;
+}
+.ant-table.ant-table-bordered
+  > .ant-table-container
+  > .ant-table-content
+  > table
+  > thead
+  > tr
+  > th:last-child,
+.ant-table.ant-table-bordered
+  > .ant-table-container
+  > .ant-table-content
+  > table
+  > tbody
+  > tr
+  > td:last-child {
+  border-right: 0;
+}
+.ant-table {
+  border: 1px solid $border-color;
+  box-shadow: 0 1px 5px 1px rgba($black-color, 0.06);
+  display: block;
+  overflow-y: auto;
+  table {
+    thead {
+      th {
+        @media #{$screen-sm} {
+          min-width: 100px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        &:last-child {
+          td {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//switch
+.ant-switch-handle {
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  box-shadow: 0 1px 5px 0 rgba($black-color, 0.2);
+  background-color: $white-color;
+}
+
+.ant-switch {
+  background-color: $switch-color;
+}
+.ant-switch-checked {
+  background-color: $theme-color;
+}
+.ant-picker-suffix {
+  color: $picker-icon-color;
+}
+
+//picker
+.ant-picker-focused {
+  border-color: $theme-color;
+}
+.ant-picker {
+  border-radius: 4px;
+  width: 100%;
+  background-color: $Login-bg;
+  &:hover {
+    border-color: $theme-color;
+  }
+}
+
+//dropdown
+.space-dropdown {
+  .button {
+    border-radius: 4px;
+    background-color: $Login-bg;
+    border: 1px solid $border-color;
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    text-align: left;
+    height: 36px;
+    padding: 2px 6px;
+    color: $gray-color;
+    cursor: pointer;
+    background-color: $white-color;
+  }
+  .dropdown-wrapper {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+    border-radius: 4px;
+    border: 1px solid $border-color;
+    box-shadow: 0 16px 24px 2px rgba($black-color, 0.14);
+    background-color: $white-color;
+    &__search {
+      padding: 20px 20px 0 20px;
+    }
+    &__btns {
+      padding: 0 20px 20px 20px;
+      .apply-button {
+        .ant-btn {
+          margin-right: 10px;
+        }
+      }
+    }
+    .dropdown-menu {
+      padding: 0 20px 20px 20px;
+      max-height: 300px;
+      overflow-y: auto;
+
+      &__space {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $border-color;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        max-height: 350px;
+        overflow-y: auto;
+        @include textStyleMixin(
+          $size: 14px,
+          $weight: 500,
+          $color: $black-color
+        );
+        span {
+          color: $gray-color;
+          cursor: pointer;
+        }
+        input {
+          width: 100%;
+          border: 0;
+          padding-right: 12px;
+          outline: none;
+          &::placeholder {
+            @include textStyleMixin(
+              $size: 14px,
+              $weight: 500,
+              $color: $black-color
+            );
+          }
+        }
+      }
+      &__item {
+        padding: 10px 0;
+        @include flex-mixin(
+          $flex: flex,
+          $vPosition: space-between,
+          $hPosition: center
+        );
+
+        &:last-child {
+          padding-bottom: 0;
+        }
+        &:hover {
+          background-color: $white-color;
+          cursor: pointer;
+        }
+        a {
+          color: $theme-color;
+          font-size: 12px;
+          text-decoration: underline;
+          line-height: 21px;
+        }
+      }
+
+      .ant-checkbox + span {
+        font-size: 14px;
+      }
+    }
+    .search-barbar {
+      width: 100%;
+      .ant-input {
+        background-color: $white-color;
+        &:first-child {
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          box-shadow: none !important;
+        }
+      }
+      .ant-input-group-addon {
+        position: absolute;
+        right: 4px;
+        left: auto;
+        width: 36px;
+        z-index: 9;
+        top: 1px;
+        .ant-btn {
+          border: 0;
+          height: 34px;
+        }
+        .ant-input-search-button {
+          background-color: $white-color;
+        }
+      }
+    }
+  }
+}
+
+//button icon
+.add_btns {
+  display: flex;
+}
+.ant-btn {
+  .icon {
+    height: 16px;
+    top: 3px;
+    position: relative;
+  }
+  > span.icon + span {
+    margin-left: 8px;
+  }
+}
+
+//content box
+.content-box {
+  padding: 20px 20px 24px;
+  border-radius: 4px;
+  background: $Login-bg;
+  border: 1px solid rgba($black-color, 0.07);
+  height: 100%;
+  @media #{$screen-sm} {
+    height: auto;
+  }
+  .ant-picker {
+    background-color: $white-color;
+  }
+}
+.parkingLocationTitle-row + .content-box {
+  height: calc(100% - 44px);
+  @media #{$screen-sm} {
+    height: auto;
+  }
+}
+//Tooltip
+.ant-tooltip {
+  max-width: 100%;
+  .ant-tooltip-content {
+    .ant-tooltip-arrow-content {
+      border: 1px solid $border-color;
+    }
+    .ant-tooltip-inner {
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      font-weight: 500;
+      padding: 8px 17px;
+      background-color: $white-color;
+      color: $black-color;
+      .Theme_pop {
+        color: $theme-color;
+      }
+    }
+  }
+}
+
+//breadcum
+.ant-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .ant-breadcrumb-separator {
+    line-height: 0;
+  }
+}
+
+//radio
+.ant-radio-inner {
+  background-color: $white-color;
+}

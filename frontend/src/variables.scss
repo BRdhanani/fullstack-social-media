@@ -1,0 +1,89 @@
+$theme-color: #6c60d7;
+$Login-bg: #f6f6ff;
+
+$dark-purple: #5849c2;
+$light-purple: #c7c1ff;
+$white-color: #fff;
+$border-color: #deddeb;
+$gray-color: #74798c;
+$black-color: #222c3c;
+$light-bg: #f6f6ff;
+
+$gray-btn: #323c52;
+$switch-color: #dadaea;
+
+$picker-icon-color: #919da8;
+
+%custom-scroll {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #ebeef0;
+    outline: none;
+    border-radius: 2px;
+  }
+}
+/* Media Quires */
+$screen-xss: 'only screen and (max-width : 575px)';
+$screen-xs: 'only screen and (max-width : 767px)';
+$screen-sm: 'only screen and (max-width : 991px)';
+$screen-md: 'only screen and (max-width : 1199px)';
+$screen-lg: 'only screen and (max-width : 1366px)';
+$screen-xlg: 'only screen and (min-width : 1600px)';
+//Font Style mixin start
+
+// device specific hide show content mixin
+
+//Input placeholder mixin start
+@mixin placeholder($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &::placeholder {
+    color: $color;
+  }
+}
+
+// flex mixin start
+@mixin flex-mixin(
+  $flex: flex,
+  $size: null,
+  $direction: null,
+  $vPosition: null,
+  $hPosition: null,
+  $wrap: null
+) {
+  flex: $size;
+  display: $flex;
+  flex-direction: $direction;
+  align-items: $vPosition;
+  justify-content: $hPosition;
+  flex-wrap: $wrap;
+}
+@mixin textStyleMixin(
+  $size: null,
+  $lineHeight: null,
+  $color: null,
+  $weight: null,
+  $spacing: null,
+  $transform: null,
+  $decoration: null
+) {
+  font-size: $size;
+  line-height: $lineHeight;
+  color: $color;
+  font-weight: $weight;
+  letter-spacing: $spacing;
+  text-transform: $transform;
+  text-decoration: $decoration;
+}
